@@ -1,0 +1,27 @@
+downloadPDF简介
+	根据数据库中的url下载pdf文件
+
+依赖的数据库/表：
+	icobenchdb的表icos_url
+	结构
+        name, info_href, whitepaper_url,page,subN
+        项目名，详情网页，白皮书url，所在页，页内次序
+	来源：
+		icobenchdb的表icos_info
+
+使用方法
+	python downloadPDF minP maxP
+
+效果
+	将会下载数据库中 minP<=page<maxP 的元组对应的pdf
+	文件将会存储在当前目录下的文件夹【page(minP,maxP)】下
+	
+	日志文件【fail_log_page[minP,maxP-1]】存储下载失败的pdf的信息
+	
+	日志文件【log】保存程序运行的总体信息，
+	如：运行时间、符合条件的元组数、成功下载的pdf数、失败的数量
+	
+	终端会输出程序运行的总体信息
+
+版本：
+	python3.7
